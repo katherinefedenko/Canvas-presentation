@@ -69,3 +69,45 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-selector-id {
   font-weight: bold;
 }
+
+.canvas__images {
+  display: grid;
+  grid-gap: 10px 10px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+}
+
+.bitColor {
+  background-image: url('../assets/8-bit-Color.jpg');
+  height: 250px;
+}
+
+
+.cloth {
+  background-image: url('../assets/cloth.jpg');
+  height: 250px;
+}
+
+
+.flowerDraw {
+  background-image: url('../assets/flower-draw.jpg');
+  height: 250px;
+}
+
+
+.hakimParticles {
+  background-image: url('../assets/hakim-particles.jpg');
+  height: 250px;
+}
+
+
+.liquidParticles {
+  background-image: url('../assets/liquid-particles.jpg');
+  height: 250px;
+}
+
+
+.deliciousTree {
+  background-image: url('../assets/delicious-tree.jpg');
+  height: 250px;
+}

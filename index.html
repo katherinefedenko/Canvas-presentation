@@ -1,49 +1,412 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+	<title>Canvas</title>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>The HTML5 Canvas</h1>
+			</section>
+			<section>
+				<section>
+					<h2>Overview</h2>
+				</section>
+				<section>
+					<p>
+						Canvas is a 2D drawing API recently added to HTML and supported by most browsers.
+						Canvas allows you to draw anything you want directly in the
+						web browser without the use of plugins like Flash or Java. With its deceptively simple
+						API, Canvas can revolutionize how we build web applications for all devices, not just
+						desktops.
+					</p>
+				</section>
+				<section>
+					<h3>HTML Canvas Can:</h3>
+					<ul>
+						<li>Draw Text</li>
+						<li>Draw Graphics</li>
+						<li>Be Animated</li>
+						<li>Be Interactive</li>
+						<li>Be Used in Games</li>
+					</ul>
+				</section>
+				<section>
+					<p>This images give you just a taste of what is possible with Canvas:</p>
+					<div class="canvas__images">
+						<div class="bitColor"></div>
+						<div class="cloth"></div>
+						<div class="flowerDraw"></div>
+						<div class="hakimParticles"></div>
+						<div class="liquidParticles"></div>
+						<div class="deliciousTree"></div>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Official Standards</h2>
+				</section>
+				<section>
+					<p>
+						<h5>Official papers that describe and define the canvas element:</h5>
+						<br>
+						<a href="https://www.w3.org/TR/2009/WD-html5-20090825/the-canvas-element.html">The W3C</a>
+						defines the HTML5 standard.
+						<br>
+						<a href="https://html.spec.whatwg.org/multipage/canvas.html#the-canvas-element">WHATWG</a> is
+						the section of the Web Applications draft specification of the
+						WHATWG, in which the canvas element is
+						originally standardized.
+						<br>
+						<a href="https://www.w3.org/TR/2dcontext/">W3C/2D</a> is the W3C description of the HTML Canvas
+						2D Context
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>What is Canvas?</h2>
+				</section>
+				<section>
+					<p>
+						Canvas is a 2D drawing API. Essentially the browser gives you a rectanglar area on the
+						screen
+						that you can draw into. You can draw lines, shapes, images, text; pretty much anything you
+						want.
+						Canvas was originally created by Apple for its Dashboard widgets, but it has since been
+						adopted
+						by every major browser vendor and is now part of the HTML 5 spec.
+					</p>
+				</section>
+				<section>
+					<p>
+						Here's a quick example of what some Canvas code looks like:
+					</p>
+					<pre><code class="hljs html" style="word-wrap: break-word;" data-line-numbers="1-11">&lt;html&gt;	
+  &lt;body&gt;
+	&lt;canvas width="800" height="600" id="canvas"&gt;&lt;/canvas&gt;
+	  &lt;script&gt;
+	    var canvas = document.getElementById('canvas');
+		var c = canvas.getContext('2d');
+		c.fillStyle = "red";
+		c.fillRect(100, 100, 400, 300);
+	  &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;	
+					</code></pre>
+				</section>
+				<section>
+					<p>The result for the red rectanglar from the previous code:</p>
+					<img width="200" height="200" src="./lib/assets/redrect.png" alt="Red rectanglar">
+					<br>
+					<small>This rectangle is drawn with the context.fillRect() function.</small>
+				</section>
+				<section>
+					<h6>Note:</h6>
+					<p>
+						It's important to understand that Canvas is for drawing pixels.
+						It doesn't have shapes or vectors. There are no objects to attach event handlers to.
+						It just draws pixels to the screen. As we shall see this is both a strength and a weakness.
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>
+						So where does it fit in with the rest of the web?
+					</h3>
+				</section>
+				<section>
+					<p>There are four ways to draw things on the web:</p>
+					<ul>
+						<li>Canvas</li>
+						<li>SVG</li>
+						<li>CSS</li>
+						<li>DOM animation</li>
+					</ul>
+					<p>Canvas differ from the other three:</p>
+				</section>
+				<section>
+					<h2>SVG</h2>
+					<p>
+						<mark>SVG</mark> is a vector API that draws shapes.
+						Each shape has an object that you can attach event handlers to.
+						If you zoom in the shape stays smooth, whereas Canvas would become pixelated.
+					</p>
+				</section>
+				<section>
+					<h2>CSS</h2>
+					<p>
+						<mark>CSS</mark> is really about styling DOM elements.
+						Since there are no DOM objects for things you draw in Canvas you can't use CSS to style it.
+						CSS will only affect the rectanglar area of the Canvas itself,
+						so you can set a border and background color, but that's it.
+					</p>
+				</section>
+				<section>
+					<h2>DOM animation</h2>
+					<p>
+						The <mark>DOM</mark>, or Document Object Model, defines an object for everything on the
+						screen.
+						DOM animation, either by using CSS or JavaScript to move objects around,
+						can be smoother in some cases than doing it with Canvas,
+						but it depends on your browser implementation.
+					</p>
+				</section>
+				<section>
+					<h3>Usage</h3>
+					<p>
+						<ul>
+							<li>Use <mark>SVG</mark> when you have existing shapes that you want to render to the
+								screen, like a map that came out of Adobe Illustrator.</li>
+							<li>Use <mark>CSS</mark> or <mark>DOM</mark> animation when you have large static areas
+								that
+								you wish to animate, or if you want to use 3D transforms.</li>
+							<li><mark>Canvas</mark> is a great choice for charts, graphs, dynamic diagrams, and of
+								course video games.</li>
+						</ul>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Browser Support</h2>
+				</section>
+				<section>
+					<h3>Desktop Browser</h3>
+					<p>Canvas is now a stable API and most modern browsers support it to some extent.</p>
+					<table>
+						<thead>
+							<tr>
+								<th>Desktop Browser </th>
+								<th>Version</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Safari</td>
+								<td>3.0+</td>
+							</tr>
+							<tr>
+								<td>Chrome</td>
+								<td>10+</td>
+							</tr>
+							<tr>
+								<td>Opera</td>
+								<td>9+</td>
+							</tr>
+							<tr>
+								<td>FireFox</td>
+								<td>4.0+</td>
+							</tr>
+							<tr>
+								<td>Internet Explorer</td>
+								<td>9.0+</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h3>Mobile Browser</h3>
+					<p>Most smartphone platforms support it because most of them are based on WebKit,
+						which has long had good support.</p>
+					<table>
+						<thead>
+							<tr>
+								<th>Mobile Browser </th>
+								<th>Version</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>iOS</td>
+								<td>all</td>
+							</tr>
+							<tr>
+								<td>webOS</td>
+								<td>all</td>
+							</tr>
+							<tr>
+								<td>Android</td>
+								<td>2.0+</td>
+							</tr>
+							<tr>
+								<td>BlackBerry</td>
+								<td>Playbook and OS 6.0+</td>
+							</tr>
+							<tr>
+								<td>Windows Phone 7</td>
+								<td>none</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Paths</h2>
+				</section>
+				<section>
+					<p>
+						Paths are shapes created by a bunch of straight or curved line segments.
+						In Canvas you must first define a path with beginPath(), then you can fill it, stroke it,
+						or use it as a clip. You define each line segment with functions like moveTo(), lineTo(),
+						and bezierCurveTo().
+					</p>
+				</section>
+				<section>
+					<p>
+						This example draws a shape with a move to, followed by a bezier curve segment, then some
+						lines.
+						After creating the path it fills and strokes it.
+					</p>
+					<img width="450" height="200" src="./lib/assets/path.png" alt="Path">
+				</section>
+				<section>
+					<p>Code for the shape above:</p>
+					<pre><code>c.fillStyle = 'red';
+  c.beginPath();
+  c.moveTo(10,30);
+  c.bezierCurveTo(50,90,159,-30,200,30);
+  c.lineTo(200,90);
+  c.lineTo(10,90);
+  c.closePath();
+  c.fill();
+  c.lineWidth = 4;
+  c.strokeStyle = 'black';
+  c.stroke();  
+						</code>
+					</pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Coordinate System</h2>
+				</section>
+				<section>
+					<p>
+						Canvas has the origin in the upper left corner with the y axis going down.
+						But if you want a different origin you can do that with transforms.
+						Besides, canvas spec defines coordinates at the upper left corner of a pixel.
+					</p>
+					<img width="500" height="400" src="./lib/assets/coords.png" alt="Coordinate System">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Images</h2>
+				</section>
+				<section>
+					<p>
+						Canvas can draw images with the drawImage function.
+						There are several forms of drawImage:
+						<br>
+						You can draw the image directly to the screen at normal scale, or stretch and slice it how
+						you like.
+					</p>
+				</section>
+				<section>
+					<img width="700" height="200" src="./lib/assets/images.png" alt="Images">
+					<pre><code>
+  ctx.drawImage(img, 0,0); //normal drawing
+  ctx.drawImage(img, //draw stretched
+	  0,0,66,66, //source (x,y,w,h)
+	  100,0,100,100//destination (x,y,w,h)
+	  );
+  ctx.drawImage(img, //draw a slice
+	  20,10,20,20, //source coords (x,y,w,h)
+	  250,0,250,50//destination coords (x,y,w,h)
+	  );
+						</code>
+					</pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Text</h2>
+				</section>
+				<section>
+					<p>
+						The font attribute is the same as its CSS equivalent, so you can set the style, size, and
+						font family.
+						Note that the fillText(string,x,y) function draws using baseline of the text, not the top.
+					</p>
+				</section>
+				<section>
+					<img width="300" height="200" src="./lib/assets/text.png" alt="Text">
+					<pre><code>
+  ctx.fillStyle = "black";
+  ctx.font = "italic "+44+"pt Arial ";
+  ctx.fillText("this is text", 11,123);
+						</code>
+					</pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Gradient</h2>
+				</section>
+				<section>
+					<p>Canvas can also fill shapes with gradients instead of colors.
+						<br>
+						Here's a linear gradient:
+					</p>
+				</section>
+				<section>
+					<img width="500" height="300" src="./lib/assets/gradient.png" alt="Text">
+					<pre><code class="hljs javascript" style="word-wrap: break-word;">
+  var grad = ctx.createLinearGradient(0,0,200,0);
+  grad.addColorStop(0, "white");
+  grad.addColorStop(0.5, "red");
+  grad.addColorStop(1, "black");
+					
+  ctx.fillStyle = grad;
+  ctx.fillRect(0,0,400,200);
+						</code>
+					</pre>
+				</section>
+			</section>
 		</div>
+	</div>
 
-		<script src="js/reveal.js"></script>
+	<script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
-			});
-		</script>
-	</body>
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true }
+			]
+		});
+	</script>
+</body>
+
 </html>
