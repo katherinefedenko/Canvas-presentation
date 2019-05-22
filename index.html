@@ -29,19 +29,35 @@
 		<div class="slides">
 			<section>
 				<h1>The HTML5 Canvas</h1>
+				<aside class="notes">
+					In this presentation i'm gonna cover the topic of html5 canvas.
+				</aside>
 			</section>
 			<section>
 				<section>
 					<h2>Overview</h2>
+					<aside class="notes">
+						Let's make a quick overview of the current topic.
+					</aside>
 				</section>
 				<section>
 					<p>
 						Canvas is a 2D drawing API recently added to HTML and supported by most browsers.
-						Canvas allows you to draw anything you want directly in the
-						web browser without the use of plugins like Flash or Java. With its deceptively simple
-						API, Canvas can revolutionize how we build web applications for all devices, not just
-						desktops.
+						<br>
+						<ul>
+							<li>allows you to draw anything you want directly in the
+								web browser without the use of plugins like Flash or Java</li>
+							<li>can revolutionize how we build web applications for all devices, not just
+								desktops.</li>
+						</ul>
 					</p>
+					<aside class="notes">
+						Canvas is a 2D drawing API recently added to HTML and supported by most browsers.
+						It allows you to draw anything you want directly in the
+						web browser without the use of plugins like Flash or Java.
+						With its deceptively simple API, Canvas can revolutionize how we build web applications for all devices, not
+						just desktops.
+					</aside>
 				</section>
 				<section>
 					<h3>HTML Canvas Can:</h3>
@@ -52,9 +68,14 @@
 						<li>Be Interactive</li>
 						<li>Be Used in Games</li>
 					</ul>
+					<aside class="notes">
+						With Canvas you can draw text, graphics, shapes, manipulate photos, build games, and animate virtually
+						anything;
+						You can even create mobile apps with it.
+					</aside>
 				</section>
 				<section>
-					<p>This images give you just a taste of what is possible with Canvas:</p>
+					<p>What is possible with Canvas?</p>
 					<div class="canvas__images">
 						<div class="bitColor"></div>
 						<div class="cloth"></div>
@@ -63,11 +84,17 @@
 						<div class="liquidParticles"></div>
 						<div class="deliciousTree"></div>
 					</div>
+					<aside class="notes">
+						This images give you just a taste of what is possible with Canvas.
+					</aside>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h2>Official Standards</h2>
+					<aside class="notes">
+						Now let's talk about official standards.
+					</aside>
 				</section>
 				<section>
 					<p>
@@ -77,13 +104,21 @@
 						defines the HTML5 standard.
 						<br>
 						<a href="https://html.spec.whatwg.org/multipage/canvas.html#the-canvas-element">WHATWG</a> is
-						the section of the Web Applications draft specification of the
-						WHATWG, in which the canvas element is
+						the section of the Web Applications draft specification in which the canvas element is
 						originally standardized.
 						<br>
 						<a href="https://www.w3.org/TR/2dcontext/">W3C/2D</a> is the W3C description of the HTML Canvas
-						2D Context
+						2D Context.
 					</p>
+					<aside class="notes">
+						These are the official papers that describe and define the canvas element.
+						The (World Wide Web Consortium) defines the HTML5 standard,
+						and this is the link to the section that describes the canvas element.
+						And also here is a link to the (Web Hypertext Application Technology Working Group) that is the section of
+						the
+						Web Applications draft specification in which the canvas element is originally standardized.
+						And finally, the link to [W3C/2D] is the W3C description of the HTML Canvas 2D Context.
+					</aside>
 				</section>
 			</section>
 			<section>
@@ -92,14 +127,22 @@
 				</section>
 				<section>
 					<p>
-						Canvas is a 2D drawing API. Essentially the browser gives you a rectanglar area on the
-						screen
-						that you can draw into. You can draw lines, shapes, images, text; pretty much anything you
-						want.
+						Canvas is a 2D drawing API. Essentially the browser gives you a rectangular area on the
+						screen that you can draw into.
+						<br>
+						You can draw lines, shapes, images, text.
+						<br>
 						Canvas was originally created by Apple for its Dashboard widgets, but it has since been
 						adopted
 						by every major browser vendor and is now part of the HTML 5 spec.
 					</p>
+					<aside class="notes">
+						Canvas is a 2D drawing API. Essentially the browser gives you a rectangular area on the
+						screen that you can draw into.
+						You can draw lines, shapes, images, text; pretty much anything you want.
+						Canvas was originally created by Apple for its Dashboard widgets, but it has been
+						adopted by every major browser vendor and is now part of the HTML 5 specification.
+					</aside>
 				</section>
 				<section>
 					<p>
@@ -119,25 +162,41 @@
 					</code></pre>
 				</section>
 				<section>
-					<p>The result for the red rectanglar from the previous code:</p>
+					<p>The result for the red rectangular from the previous code:</p>
 					<img width="200" height="200" src="./lib/assets/redrect.png" alt="Red rectanglar">
 					<br>
 					<small>This rectangle is drawn with the context.fillRect() function.</small>
+					<aside class="notes">
+						Finally, you can see the result for the simple red rectangular from the previous code.
+						This rectangle is drawn with the context.fillRect() function.
+					</aside>
 				</section>
 				<section>
 					<h6>Note:</h6>
 					<p>
-						It's important to understand that Canvas is for drawing pixels.
-						It doesn't have shapes or vectors. There are no objects to attach event handlers to.
-						It just draws pixels to the screen. As we shall see this is both a strength and a weakness.
+						<ul>
+							<li>Canvas is for drawing pixels.</li>
+							<li>It doesn't have shapes or vectors.</li>
+							<li>There are no objects to attach event handlers to.</li>
+						</ul>
 					</p>
+					<aside class="notes">
+						It's important to understand that Canvas is for drawing pixels.
+						It doesn't have shapes or vectors.
+						There are no objects to attach event handlers to.
+						It just draws pixels to the screen.
+						As we shall see this is both a strength and a weakness.
+					</aside>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h3>
-						So where does it fit in with the rest of the web?
+						Comparing to the rest of the web
 					</h3>
+					<aside class="notes">
+						Let's find out where it fits in with the rest of the web?
+					</aside>
 				</section>
 				<section>
 					<p>There are four ways to draw things on the web:</p>
@@ -147,7 +206,10 @@
 						<li>CSS</li>
 						<li>DOM animation</li>
 					</ul>
-					<p>Canvas differ from the other three:</p>
+					<aside class="notes">
+						There are four ways to draw things on the web:
+						Canvas, SVG, CSS, and direct DOM animation.
+					</aside>
 				</section>
 				<section>
 					<h2>SVG</h2>
@@ -160,40 +222,62 @@
 				<section>
 					<h2>CSS</h2>
 					<p>
-						<mark>CSS</mark> is really about styling DOM elements.
+						<mark>CSS</mark> is about styling DOM elements.
 						Since there are no DOM objects for things you draw in Canvas you can't use CSS to style it.
-						CSS will only affect the rectanglar area of the Canvas itself,
+						CSS will only affect the rectangular area of the Canvas itself,
 						so you can set a border and background color, but that's it.
 					</p>
 				</section>
 				<section>
 					<h2>DOM animation</h2>
 					<p>
-						The <mark>DOM</mark>, or Document Object Model, defines an object for everything on the
+						The <mark>DOM</mark> defines an object for everything on the
 						screen.
 						DOM animation, either by using CSS or JavaScript to move objects around,
 						can be smoother in some cases than doing it with Canvas,
 						but it depends on your browser implementation.
 					</p>
+					<aside class="notes">
+						The Document Object Model, defines an object for everything on the
+						screen.
+						DOM animation, either by using CSS or JavaScript to move objects around,
+						can be smoother in some cases than doing it with Canvas,
+						but it depends on your browser implementation.
+					</aside>
 				</section>
 				<section>
 					<h3>Usage</h3>
 					<p>
 						<ul>
 							<li>Use <mark>SVG</mark> when you have existing shapes that you want to render to the
-								screen, like a map that came out of Adobe Illustrator.</li>
+								screen.</li>
 							<li>Use <mark>CSS</mark> or <mark>DOM</mark> animation when you have large static areas
 								that
 								you wish to animate, or if you want to use 3D transforms.</li>
-							<li><mark>Canvas</mark> is a great choice for charts, graphs, dynamic diagrams, and of
+							<li>Use<mark>Canvas</mark> for charts, graphs, dynamic diagrams, and of
 								course video games.</li>
 						</ul>
 					</p>
+					<aside class="notes">
+						So when should you use Canvas over SVG, CSS or DOM elements?
+						Well, Canvas is lower level than those others so you can have
+						more control over the drawing and use less memory,
+						but at the cost of having to write more code.
+						Use SVG when you have existing shapes that you want to render to the
+						screen, like a map that came out of Adobe Illustrator.
+						Use CSS or DOM animation when you have large static areas
+						that you wish to animate, or if you want to use 3D transforms.
+						For charts, graphs, dynamic diagrams, and of course video games,
+						Canvas is a great choice.
+					</aside>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h2>Browser Support</h2>
+					<aside class="notes">
+						Let's talk about where you can use it.
+					</aside>
 				</section>
 				<section>
 					<h3>Desktop Browser</h3>
@@ -228,11 +312,15 @@
 							</tr>
 						</tbody>
 					</table>
+					<aside class="notes">
+						Fortunately Canvas is now a stable API and most modern browsers support it to some extent. Even Internet
+						Explorer supports it starting with IE 9, and its implementation is very good.
+					</aside>
 				</section>
 				<section>
 					<h3>Mobile Browser</h3>
 					<p>Most smartphone platforms support it because most of them are based on WebKit,
-						which has long had good support.</p>
+						which has had long good support.</p>
 					<table>
 						<thead>
 							<tr>
@@ -263,11 +351,19 @@
 							</tr>
 						</tbody>
 					</table>
+					<aside class="notes">
+						On the mobile side most smartphone platforms support it because most of them are based on WebKit, which has
+						had long good support. WebOS, iOS, and Android support it, BlackBerry does,
+						at least on the PlayBook. Windows Phone 7 does not, but it may come in a future update.
+					</aside>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h2>Paths</h2>
+					<aside class="notes">
+						Let's talk about paths.
+					</aside>
 				</section>
 				<section>
 					<p>
@@ -276,16 +372,15 @@
 						or use it as a clip. You define each line segment with functions like moveTo(), lineTo(),
 						and bezierCurveTo().
 					</p>
+					<aside class="notes">
+						Canvas only directly supports the rectangle shape. To draw any other shape you must draw it yourself using a
+						path. Paths are shapes created by a bunch of straight or curved line segments. In Canvas you must first
+						define a path with beginPath(), then you can fill it, stroke it, or use it as a clip. You define each line
+						segment with functions like moveTo(), lineTo(), and bezierCurveTo().
+					</aside>
 				</section>
 				<section>
-					<p>
-						This example draws a shape with a move to, followed by a bezier curve segment, then some
-						lines.
-						After creating the path it fills and strokes it.
-					</p>
 					<img width="450" height="200" src="./lib/assets/path.png" alt="Path">
-				</section>
-				<section>
 					<p>Code for the shape above:</p>
 					<pre><code>c.fillStyle = 'red';
   c.beginPath();
@@ -300,11 +395,19 @@
   c.stroke();  
 						</code>
 					</pre>
+					<aside class="notes">
+						This example draws a shape with a move to, followed by a bezier curve segment, then some
+						lines.
+						After creating the path it fills and strokes it.
+					</aside>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h2>Coordinate System</h2>
+					<aside class="notes">
+						A quick word on coordinate systems.
+					</aside>
 				</section>
 				<section>
 					<p>
@@ -313,11 +416,19 @@
 						Besides, canvas spec defines coordinates at the upper left corner of a pixel.
 					</p>
 					<img width="500" height="400" src="./lib/assets/coords.png" alt="Coordinate System">
+					<aside class="notes">
+						Canvas has the origin in the upper left corner with the y axis going down. This is traditional for computer
+						graphics, but if you want a different origin you can do that with transforms.
+						Another important thing is that the Canvas spec defines coordinates at the upper left corner of a pixel.
+					</aside>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h2>Images</h2>
+					<aside class="notes">
+						Canvas can also draw images
+					</aside>
 				</section>
 				<section>
 					<p>
@@ -327,6 +438,12 @@
 						You can draw the image directly to the screen at normal scale, or stretch and slice it how
 						you like.
 					</p>
+					<aside class="notes">
+						We can draw images with the drawImage function.
+						There are several forms of drawImage. You can draw the image directly to the screen at normal scale, or
+						stretch and slice it how you like. Slicing and stretching images can be very handy for special effects in
+						games, because image interpolation is often much faster than other kinds of scaling.
+					</aside>
 				</section>
 				<section>
 					<img width="700" height="200" src="./lib/assets/images.png" alt="Images">
@@ -342,18 +459,37 @@
 	  );
 						</code>
 					</pre>
+					<aside class="notes">
+						To stretch an image you must specify the source and destination coordinates. The source coordinates tell
+						drawImage where to pull the pixels from in the image.
+						The destination coordinates tell the drawImage where to put the pixels on the screen. By changing the w and
+						h coords you can stretch and shrink the image.
+
+						Slicing is the same thing, but using source coordinates that don't cover the entire image. When you take a
+						slice of an image be sure you don't go outside the source bounds or else the image will disappear. For
+						example, if you drag the source width past 46, then it will try to access pixels beyond the right edge of
+						the image. Using a negative source x coordinate will do the same
+					</aside>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h2>Text</h2>
+					<aside class="notes">
+						It's possible to draw text with Canvas as well.
+					</aside>
 				</section>
 				<section>
 					<p>
 						The font attribute is the same as its CSS equivalent, so you can set the style, size, and
 						font family.
-						Note that the fillText(string,x,y) function draws using baseline of the text, not the top.
+						The fillText(string,x,y) function draws using baseline of the text, not the top.
 					</p>
+					<aside class="notes">
+						The font attribute is the same as its CSS equivalent, so you can set the style, size, and font family. Note
+						that the fillText(string,x,y) function draws using baseline of the text, not the top. If you put your text
+						at 0,0 then it will be drawn off the top of the screen. Be sure to lower the y by an appropriate amount
+					</aside>
 				</section>
 				<section>
 					<img width="300" height="200" src="./lib/assets/text.png" alt="Text">
@@ -363,17 +499,17 @@
   ctx.fillText("this is text", 11,123);
 						</code>
 					</pre>
+					<aside class="notes">
+						Here is an example of the simple text.
+					</aside>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h2>Gradient</h2>
-				</section>
-				<section>
-					<p>Canvas can also fill shapes with gradients instead of colors.
-						<br>
-						Here's a linear gradient:
-					</p>
+					<aside class="notes">
+						And finally, let's see how gradients can be created using canvas.
+					</aside>
 				</section>
 				<section>
 					<img width="500" height="300" src="./lib/assets/gradient.png" alt="Text">
@@ -387,7 +523,20 @@
   ctx.fillRect(0,0,400,200);
 						</code>
 					</pre>
+					<aside class="notes">
+						Here's a linear gradient. You see Canvas can also fill shapes with gradients instead of colors.
+						An important thing to notice here is that gradient is painted in the coordinate system that the shape is
+						drawn in, not the internal coordinates of the shape.
+					</aside>
 				</section>
+			</section>
+			<section>
+				<h2>Thanks for attention</h2>
+				<aside class="notes">
+					So that is all i wanted to tell you about this topic.
+					It was an introduction to the basic drawing using canvas.
+					Thanks for attention.
+				</aside>
 			</section>
 		</div>
 	</div>
